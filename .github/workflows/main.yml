@@ -3,7 +3,7 @@ name: main
 on:
   push:
     branches: [Master]
-  env:
+env:
   aws_region: ap-southeast-1
 
 jobs:

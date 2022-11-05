@@ -28,6 +28,21 @@ resource "aws_launch_template" "webserver-launch-config" {
 
 }
 
+resource "aws_lb" "ALB-tf" {
+  name               = "sg-ALG-tf"
+  internal           = false
+  load_balancer_type = "application"
+  subnets            = aws_subnet.public.*.id
+  security_groups    = [aws_security_group.lb.id]
+
+  tags = {
+    name    = "sg-AppLoadBalancer-tf"
+    Project = "sg-assignment"
+  }
+}
+
+
+
 
 # Create Auto Scaling Group
 
@@ -79,18 +94,6 @@ resource "aws_lb_target_group" "TG-tf" {
 
 }
 
-resource "aws_lb" "ALB-tf" {
-  name               = "sg-ALG-tf"
-  internal           = false
-  load_balancer_type = "application"
-  subnets            = aws_subnet.public.*.id
-  security_groups    = [aws_security_group.lb.id]
-
-  tags = {
-    name    = "sg-AppLoadBalancer-tf"
-    Project = "sg-assignment"
-  }
-}
 
 # Create ALB Listener 
 

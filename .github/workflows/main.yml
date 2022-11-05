@@ -1,7 +1,7 @@
 name: main
 
 on:
-  push: 
+  push:
     branches: [Master]
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
         if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
         run: echo "terraform validate failed"
 
+  Lint:
     name: Lint
     runs-on: ubuntu-latest
     needs: validate

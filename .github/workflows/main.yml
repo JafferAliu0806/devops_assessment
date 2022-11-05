@@ -4,8 +4,8 @@ on:
   push:
     branches: [Master]
 
-  env:
-    aws_region: ap-southeast-1
+env:
+  aws_region: ap-southeast-1
 
 jobs:
   # validate:

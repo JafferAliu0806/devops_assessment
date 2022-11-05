@@ -45,7 +45,7 @@ jobs:
           uses: actions/checkout@master
 
         - name: tfsec
-          uses: tfsec/tfsec-sarif-action@main
+          uses: tfsec/tfsec-sarif-action@master
           with:
             working_directory: terraform_code
             github_token: ${{ secrets.GITHUB_TOKEN }}

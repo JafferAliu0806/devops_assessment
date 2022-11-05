@@ -3,7 +3,8 @@ name: main
 on:
   push:
     branches: [Master]
-    paths: terraform_code
+    paths: 
+      - 'terraform_code/*'
 env:
   aws_region: ap-southeast-1
 

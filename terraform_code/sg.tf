@@ -34,7 +34,7 @@ resource "aws_security_group" "webserver_sg" {
     to_port     = 80
     protocol    = "tcp"
     description = "HTTP"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/16"]
 
   }
 

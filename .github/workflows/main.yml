@@ -50,6 +50,7 @@ jobs:
             working_directory: terraform_code
             sarif_file: tfsec.sarif
             github_token: ${{ secrets.GITHUB_TOKEN }}
+            soft_fail: true
 
         - name: Upload SARIF file
           uses: github/codeql-action/upload-sarif@v1

@@ -7,7 +7,7 @@ data "aws_availability_zones" "available_zones" {
 resource "aws_vpc" "sg-vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "vpc-sg"
+       Name = "vpc-sg"
   }
 }
 

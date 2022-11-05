@@ -22,15 +22,15 @@ jobs:
         if: ${{ failure() && steps.validate.outputs.failure-reason == 'validate-failed' }}
         run: echo "terraform validate failed"
 
-  fmt-check:
+    name: Lint
     runs-on: ubuntu-latest
-    name: Check formatting of terraform files
     needs: validate
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v2
 
-      - name: terraform fmt
-        uses: dflook/terraform-fmt-check@v1
-        with:
-          path: terraform_code
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Run terraform fmt check
+        run: terraform fmt -check -diff -recursive

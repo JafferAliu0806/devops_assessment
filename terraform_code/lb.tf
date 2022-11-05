@@ -47,15 +47,15 @@ resource "aws_lb" "ALB-tf" {
 # Create Auto Scaling Group
 
 resource "aws_autoscaling_group" "sg-ASG-tf" {
-  name                 = "sg-ASG-tf"
-  desired_capacity     = 3
-  max_size             = 6
-  min_size             = 3
-  force_delete         = true
-  depends_on           = [aws_lb.ALB-tf]
-  target_group_arns    = ["${aws_lb_target_group.TG-tf.arn}"]
-  health_check_type    = "EC2"
-  vpc_zone_identifier  = aws_subnet.private.*.id
+  name                = "sg-ASG-tf"
+  desired_capacity    = 3
+  max_size            = 6
+  min_size            = 3
+  force_delete        = true
+  depends_on          = [aws_lb.ALB-tf]
+  target_group_arns   = ["${aws_lb_target_group.TG-tf.arn}"]
+  health_check_type   = "EC2"
+  vpc_zone_identifier = aws_subnet.private.*.id
 
   launch_template {
     id      = aws_launch_template.webserver-launch-config.id

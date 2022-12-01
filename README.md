@@ -39,4 +39,4 @@ Docker images can be build using task2/Dockerfile and push it to ECR
 9. kubectl apply -f . 
 10. verify resources are created by using - kubectl get -n sg-assessment all --> we can see all resources were deployed .
 11. expose the services using port forward - kubectl port-forward service/my-nginx 80:80 -n sg-assessment
-12 . screen shot are available on task2/SG_assessment_task2.docx
+12. screen shot are available on task2/SG_assessment_task2.docx

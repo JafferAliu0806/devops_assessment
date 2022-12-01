@@ -1,6 +1,4 @@
 
-
-
 ### Below steps can perform to perviosion the infrastructure. 
 
 1. clone the repo 
@@ -12,8 +10,6 @@
    b terraform plan -output tf.plan --> this can be shared with the team and get the confirmation
    c. terraform apply tf.plan
 
-
-
 ### Scenario 1
 
 ### Below are points for future improvements. 
@@ -23,9 +19,8 @@
 
 3.	If the jump server is not feasible, we set up a python API on the target server, when we invoke the API the files will download from S3 and restart services
 
-CICD - Status 
 
-[![main](https://github.com/JafferAliu0806/devops_assessment/actions/workflows/main.yml/badge.svg?branch=Master)](https://github.com/JafferAliu0806/devops_assessment/actions/workflows/main.yml)
+
 
 
 ### Scenario 2

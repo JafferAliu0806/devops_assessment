@@ -3,7 +3,7 @@
 resource "aws_launch_template" "webserver-launch-config" {
   name_prefix            = "webserver-launch-config"
   image_id               = var.ami
-  instance_type          = "t2.micro"
+  instance_type          = var.instancetype
   key_name               = "test"
   vpc_security_group_ids = ["${aws_security_group.webserver_sg.id}"]
 
@@ -48,9 +48,9 @@ resource "aws_lb" "ALB-tf" {
 
 resource "aws_autoscaling_group" "sg-ASG-tf" {
   name                = "sg-ASG-tf"
-  desired_capacity    = 3
-  max_size            = 6
-  min_size            = 3
+  desired_capacity    = var.desired_count
+  max_size            = var.max_server_count
+  min_size            = var.min_server_count
   force_delete        = true
   depends_on          = [aws_lb.ALB-tf]
   target_group_arns   = ["${aws_lb_target_group.TG-tf.arn}"]

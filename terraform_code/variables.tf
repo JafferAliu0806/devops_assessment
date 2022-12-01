@@ -15,3 +15,21 @@ variable "ami" {
 variable "s3_bucket" {
   default = "mytest-sg-assessment-04112022"
 }
+
+
+variable "min_server_count" {
+  default = 3
+}
+
+
+variable "max_server_count" {
+  default = 6
+}
+
+variable "desired_count" {
+  default = 3
+}
+
+variable "instancetype" {
+  default = "t2.micro"
+}

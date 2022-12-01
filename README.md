@@ -20,9 +20,23 @@
 3.	If the jump server is not feasible, we set up a python API on the target server, when we invoke the API the files will download from S3 and restart services
 
 
+#### Kubernetes deployments.
 
+Docker images can be build using task2/Dockerfile and push it to ECR
 
+##### For DB deployment
 
-### Scenario 2
+1. clone the repo 
+2. kubectl create ns sg-assessment --> create namespace 
+3. mysql username and password can be created via from-file method  
+5. cd task2/mysql-deployment
+6. kubectl apply -f . 
+7. verify resources are created by using - kubectl get -n sg-assessment all
 
-For application deployment, I have created the docker file and manifest. I have enclosed the screenshot for all the steps and the code is the task2 directory 
+#### For application deployment.
+
+8. cd task2/app_deployment
+9. kubectl apply -f . 
+10. verify resources are created by using - kubectl get -n sg-assessment all --> we can see all resources were deployed .
+11. expose the services using port forward - kubectl port-forward service/my-nginx 80:80 -n sg-assessment
+12 . screen shot are available on task2/SG_assessment_task2.docx
